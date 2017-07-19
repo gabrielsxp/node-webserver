@@ -10,9 +10,9 @@ var app = express();
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
-app.use((request, response, next) => {
-	response.render('suspend.hbs');
-});
+// app.use((request, response, next) => {
+// 	response.render('suspend.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -58,6 +58,13 @@ app.get('/help', (request, response) => {
 app.get('/about', (request, response) => {
 	response.render('about.hbs', {
 		pageTitle: 'About Page',
+		author: 'Gabriel Soares'
+	});
+});
+
+app.get('/projects', (request, response) => {
+	response.render('projects.hbs', {
+		pageTitle:'Projects',
 		author: 'Gabriel Soares'
 	});
 });
